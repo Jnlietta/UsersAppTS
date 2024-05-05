@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const consola = require('consola');
 
 const startApp = () => {
     enum Action {

@@ -12,6 +12,7 @@
     "ts-node": "^8.10.2"
   },
   "dependencies": {
-    "@types/inquirer": "^9.0.7"
+    "@types/inquirer": "^9.0.7",
+    "consola": "^2.15.3"
   }
 }
