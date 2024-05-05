@@ -13,6 +13,12 @@ const startApp = () => {
         action: Action
       }
 
+      enum MessageVariant {
+        Success = "success",
+        Error = "error",
+        Info = "info",
+      }
+
     class Message {
         private content: string;
 
@@ -21,7 +27,7 @@ const startApp = () => {
         }
 
         public show() {
-            console.log("Current value: " + this.content);
+            console.log(this.content);
         }
 
         public capitalize() {
@@ -34,6 +40,16 @@ const startApp = () => {
 
         public toLowerCase() {
             this.content = this.content.toLowerCase();
+        }
+
+        static showColorized(variant: MessageVariant, text: string) {
+            if (variant === MessageVariant.Success) {
+                consola.success(text);
+            } else if (variant === MessageVariant.Error) {
+                consola.error(text);
+            } else if (variant === MessageVariant.Info) {
+                consola.info(text);
+            } 
         }
     }
 
