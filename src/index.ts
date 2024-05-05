@@ -70,7 +70,15 @@ const startApp = () => {
                 console.table(this.data);   
             }
         }
-        
+
+        public add(user: User): void {
+            if(user.name.length > 0 && user.age > 0){
+                this.data.push(user);
+                Message.showColorized(MessageVariant.Success, "User has been succesfully added!");
+            } else {
+                Message.showColorized(MessageVariant.Error, "Wrong data!");
+            }
+        }
     }
 
   inquirer.prompt([{
