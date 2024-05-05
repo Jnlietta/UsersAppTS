@@ -12,6 +12,30 @@ const startApp = () => {
         action: Action
       }
 
+    class Message {
+        private content: string;
+
+        constructor(content: string){
+            this.content = content;
+        }
+
+        public show() {
+            console.log("Current value: " + this.content);
+        }
+
+        public capitalize() {
+            this.content =  this.content.charAt(0).toUpperCase() + this.content.slice(1);
+        }
+
+        public toUpperCase() {
+            this.content = this.content.toUpperCase();
+        }
+
+        public toLowerCase() {
+            this.content = this.content.toLowerCase();
+        }
+    }
+
   inquirer.prompt([{
     name: 'action',
     type: 'input',
