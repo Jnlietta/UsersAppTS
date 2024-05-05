@@ -62,8 +62,7 @@ const startApp = () => {
         private data: User[] = [];
 
         showAll() {
-            console.log(Message.showColorized(MessageVariant.Info, "Users data: "));
-
+            Message.showColorized(MessageVariant.Info, "Users data: ");
             if (this.data.length === 0) {
                 console.log("No data...");
             } else {
@@ -77,6 +76,16 @@ const startApp = () => {
                 Message.showColorized(MessageVariant.Success, "User has been succesfully added!");
             } else {
                 Message.showColorized(MessageVariant.Error, "Wrong data!");
+            }
+        }
+
+        remove(name: string) {
+            const index = this.data.findIndex(user => user.name === name);
+            if(index !== -1){
+                this.data.splice(index, 1);
+                Message.showColorized(MessageVariant.Success, "User deleted!");
+            } else {
+                Message.showColorized(MessageVariant.Error, "User not found...");
             }
         }
     }
