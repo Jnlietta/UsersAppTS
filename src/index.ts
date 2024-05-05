@@ -42,7 +42,7 @@ const startApp = () => {
             this.content = this.content.toLowerCase();
         }
 
-        static showColorized(variant: MessageVariant, text: string) {
+        static showColorized(variant: MessageVariant, text: string): void {
             if (variant === MessageVariant.Success) {
                 consola.success(text);
             } else if (variant === MessageVariant.Error) {
@@ -51,6 +51,26 @@ const startApp = () => {
                 consola.info(text);
             } 
         }
+    }
+
+    type User = {
+        name: string;
+        age: number
+    }
+
+    class UsersData {
+        private data: User[] = [];
+
+        showAll() {
+            console.log(Message.showColorized(MessageVariant.Info, "Users data: "));
+
+            if (this.data.length === 0) {
+                console.log("No data...");
+            } else {
+                console.table(this.data);   
+            }
+        }
+        
     }
 
   inquirer.prompt([{
